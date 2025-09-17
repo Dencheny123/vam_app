@@ -9,17 +9,17 @@ FROM node:24-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# Создаём .env.production
-RUN echo "NODE_ENV=production" > .env.production \
-    && echo "DATABASE_URL=mysql://u1770310_admin:Chernichkin_123@31.31.198.5:3310/u1770310_Denis_Condicioner" >> .env.production \
-    && echo "PORT=3001" >> .env.production \
-    && echo "ACCESS_TOKEN_SECRET=asdgagdgagadggewqghqhfhfhqahq" >> .env.production \
-    && echo "REFRESH_TOKEN_SECRET=asdgagrweqhqchqfhfhqerfqfhqdh" >> .env.production \
-    && echo "CLIENT_URL=http://localhost:4000" >> .env.production \
-    && echo "SMTP_PASS=AYajNgOYFQ9f5gP4JriV" >> .env.production \
-    && echo "SMTP_USER=madewlove@mail.ru" >> .env.production \
-    && echo "SMTP_FROM=madewlove@mail.ru" >> .env.production \
-    && echo "SMTP_ADMIN=juniorletto03092001@gmail.com" >> .env.production
+# Создаём .env
+RUN echo "NODE_ENV=production" > .env \
+    && echo "DATABASE_URL=mysql://u1770310_admin:Chernichkin_123@31.31.198.5:3310/u1770310_Denis_Condicioner" >> .env \
+    && echo "PORT=3001" >> .env \
+    && echo "ACCESS_TOKEN_SECRET=asdgagdgagadggewqghqhfhfhqahq" >> .env \
+    && echo "REFRESH_TOKEN_SECRET=asdgagrweqhqchqfhfhqerfqfhqdh" >> .env \
+    && echo "CLIENT_URL=http://localhost:4000" >> .env \
+    && echo "SMTP_PASS=AYajNgOYFQ9f5gP4JriV" >> .env \
+    && echo "SMTP_USER=madewlove@mail.ru" >> .env \
+    && echo "SMTP_FROM=madewlove@mail.ru" >> .env \
+    && echo "SMTP_ADMIN=juniorletto03092001@gmail.com" >> .env
 # Генерируем Prisma клиент
 RUN npm install -g prisma
 RUN npx prisma generate
@@ -35,6 +35,6 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.env.production ./.env.production
+COPY --from=builder /app/.env ./.env
 EXPOSE 3001
 CMD ["node", "./dist/app.js"]

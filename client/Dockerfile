@@ -10,12 +10,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Создаём .env.production для Next.js
-RUN echo "NODE_ENV=production" > .env.production \
-    && echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api" >> .env.production \
-    && echo "NEXT_PUBLIC_UPLOADS_URL=http://localhost:3001/uploads" >> .env.production \
+RUN echo "NODE_ENV=production" > .env \
+    && echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api" >> .env \
+    && echo "NEXT_PUBLIC_UPLOADS_URL=http://localhost:3001/uploads" >> .env \
     && echo "NEXT_PUBLIC_URL=http://localhost:3001" >> .env.production \
-    && echo "NEXT_PUBLIC_DOCKER_API_URL=http://server:3001/api" >> .env.production \
-    && echo "NEXT_PUBLIC_DOCKER_UPLOADS_URL=http://server:3001/uploads" >> .env.production \
+    && echo "NEXT_PUBLIC_DOCKER_API_URL=http://server:3001/api" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_UPLOADS_URL=http://server:3001/uploads" >> .env \
     && echo "NEXT_PUBLIC_DOCKER_URL=http://server:3001" >> .env.production
 RUN npm run build
 
