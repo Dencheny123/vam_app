@@ -1,0 +1,189 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+  binaryTargets = ["native", "linux-musl", "windows", "darwin"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Username {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  twoFACode String?
+  twoFACodeExpires DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+  OWNER
+}
+
+model Meta_data {
+  id                      Int      @id @default(autoincrement())
+  title                   String?  @db.Text
+  description             String?  @db.Text
+  keywords                String?  @db.Text
+  author_name             String?  @db.Text
+  author_url              String?  @db.Text
+  metadataBase            String?  @db.Text
+  alternates              String?  @db.Text
+  openGraph_title         String?  @db.Text
+  openGraph_description   String?  @db.Text
+  openGraph_url           String?  @db.Text
+  openGraph_siteName      String?  @db.Text
+  themeColor              String?  @db.Text
+  icons_icon              String?  @db.Text
+  icons_shortcut          String?  @db.Text
+  icons_apple             String?  @db.Text
+  other_geo_region        String?  @map("other_geo.region")    @db.Text
+  other_geo_placename     String?  @map("other_geo.placename") @db.Text
+  other_geo_position      String?  @map("other_geo.position")  @db.Text
+  other_ICBM              String?  @map("other_ICBM")          @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Faq {
+  id                  Int      @id @default(autoincrement())
+  question            String?  @db.Text
+  answers             String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Service {
+  id                  Int      @id @default(autoincrement())
+  service             String?  @db.Text
+  description         String?  @db.Text
+  image              String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model My_work {
+  id                  Int      @id @default(autoincrement())
+  title               String?  @db.Text
+  square              String?  @db.Text
+  quantity            String?  @db.Text
+  time                String?  @db.Text
+  success_work        String?  @db.Text
+  image               String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Contacts {
+  id                  Int      @id @default(autoincrement())
+  email               String?  @db.Text
+  tel                 String?  @db.Text
+  address             String?  @db.Text
+  whatsapp            String?  @db.Text
+  telegram            String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  eventType String   
+  page      String   @db.Text
+  referrer  String?  @db.Text
+  url       String   @db.Text
+  userAgent String?  @db.Text
+  ip        String?  @db.Text
+  country   String?  @db.Text
+  city      String?  @db.Text
+  device    String?  @db.Text
+  browser   String?  @db.Text
+  os        String?  @db.Text
+  language  String?  @db.Text
+  screen    String?  @db.Text
+  userId    String?  @db.Text
+  metadata  Json?
+  createdAt DateTime @default(now())
+  
+  @@index([eventType])
+  @@index([createdAt])
+  @@index([page(length: 100)])
+  @@index([device(length: 20)])
+  @@index([browser(length: 50)])
+}
+
+enum OrderStatus {
+  NEW
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model Order {
+  id          Int         @id @default(autoincrement())
+  name        String      @db.Text
+  email       String?     @db.Text
+  phone       String      @db.Text
+  message     String?     @db.Text
+  status      OrderStatus @default(NEW)
+  amount      Float?
+  notes       String?     @db.Text
+  personalData Boolean
+  oferta      Boolean
+  mailing     Boolean?
+  whatsapp    String?     @db.Text
+  telegram    String?     @db.Text
+  address     String?     @db.Text
+  deadline    DateTime?
+  deadlineSetAt DateTime?
+  deadlineNotified Boolean @default(false)
+  newOrderNotified Boolean @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  notifications NotificationHistory[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email(length: 100)])
+  @@index([deadline])
+}
+
+model NotificationSettings {
+  id          Int      @id @default(autoincrement())
+  email       Boolean  @default(true)
+  push        Boolean  @default(false)
+  telegram    Boolean  @default(false)
+  newOrders   Boolean  @default(true)
+  staleOrders Boolean  @default(true)
+  deadlineReminders Boolean @default(true)
+  telegramBotToken String?   @db.Text
+  telegramChatId   String?   @db.Text
+  emailRecipients  String?   @db.Text
+  staleOrderHours  Int       @default(24)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model NotificationHistory {
+  id          Int      @id @default(autoincrement())
+  orderId     Int
+  order       Order    @relation(fields: [orderId], references: [id])
+  type        String   // 'new_order', 'stale_order', 'deadline'
+  method      String   // 'email', 'push', 'telegram'
+  recipient   String?  @db.Text
+  message     String?  @db.Text
+  success     Boolean
+  error       String?  @db.Text
+  createdAt   DateTime @default(now())
+
+  @@index([orderId])
+  @@index([createdAt])
+  @@index([type])
+}

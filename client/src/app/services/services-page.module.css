@@ -1,0 +1,151 @@
+/* Контейнер страницы */
+.services-page-container {
+  max-width: 1300px;
+  margin: 0px auto;
+  padding: 100px 20px;
+}
+
+/* Шапка страницы */
+.services-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.services-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* Контент с услугами */
+.services-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Сетка услуг */
+.servicesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* Карточка услуги */
+.serviceItem {
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--secondary-color);
+}
+
+.serviceItem:hover {
+  transform: translateY(-5px);
+}
+
+/* Изображения */
+.serviceImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.baseImage {
+  height: 220px;
+}
+
+.mediumImage {
+  height: 260px;
+}
+
+.largeImage {
+  height: 300px;
+}
+
+/* Контент услуги */
+.serviceContent {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceTitle {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.serviceDescription ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.serviceDescription li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.serviceDescription li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  top: 2px;
+}
+
+/* Текст при отсутствии услуг */
+.noServices {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2rem;
+  }
+
+  .services-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 1.8rem;
+  }
+
+  .services-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .services-title {
+    font-size: 1.6rem;
+  }
+
+  .services-subtitle {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,46 @@
+services:
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '4000:4000'
+    depends_on:
+      - server
+    environment:
+      - NODE_ENV=production
+      - DOCKER_ENV=true
+      - NEXT_PUBLIC_API_URL=http://localhost:3001/api
+      - NEXT_PUBLIC_UPLOADS_URL=http://localhost:3001/uploads
+      - NEXT_PUBLIC_URL=http://localhost:3001
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=production
+      - DOCKER_ENV=true
+      - DATABASE_URL=mysql://u1770310_admin:Chernichkin_123@31.31.198.5:3310/u1770310_Denis_Condicioner
+      - ACCESS_TOKEN_SECRET=asdgagdgagadggewqghqhfhfhqahq
+      - REFRESH_TOKEN_SECRET=asdgagrweqhqchqfhfhqerfqfhqdh
+      - CLIENT_URL=http://localhost:4000
+      - PORT=3001
+      - SMTP_PASS=AYajNgOYFQ9f5gP4JriV
+      - SMTP_USER=madewlove@mail.ru
+      - SMTP_FROM=madewlove@mail.ru
+      - SMTP_ADMIN=juniorletto03092001@gmail.com
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

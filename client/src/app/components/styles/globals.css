@@ -1,0 +1,197 @@
+/* Общие стили для сброса браузерных настроек */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Переменные для светлой темы */
+:root {
+  --bg-primary: linear-gradient(135deg, #e5e5e5 0%, #ffffc9 100%);
+  --text-primary: #373c1a;
+  --accent: #afad4c;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --card-bg: #afad4c4a;
+  --logo-filter: brightness(0) invert(0);
+  --primary-color: #373c1a;
+  --secondary-color: #afad4c;
+  --text-color: #333;
+  --text-light: #666;
+  --bg-light: #f9f9f9;
+  --bg-white: #fff;
+  --border-radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Переменные для темной темы */
+:root[data-theme='dark'] {
+  --bg-primary: linear-gradient(135deg, #343944 0%, #545a6a 100%);
+  --text-primary: #e6e9f0;
+  --accent: #7d7d7d;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --card-bg: rgba(70, 76, 88, 0.469);
+  --logo-filter: brightness(0) invert(1);
+  --bg-white: linear-gradient(135deg, #343944 0%, #545a6a 100%);
+  --primary-color: #e6e9f0;
+  --secondary-color: #7d7d7d;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --bg-light: rgba(70, 76, 88, 0.469);
+  --text-color: #e6e9f0;
+  --text-light: #9a9a9a;
+}
+
+/* Стили для выпадающего списка Select */
+:global(.ant-select-dropdown) {
+  background: linear-gradient(145deg, #1f2937, #374151) !important;
+  border: 2px solid #64748b !important;
+}
+
+:global(.ant-select-item) {
+  color: #69b1ff !important;
+  background: transparent !important;
+}
+
+:global(.ant-select-item:hover) {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+:global(.ant-select-item-option-selected) {
+  background: rgba(59, 130, 246, 0.2) !important;
+}
+
+:global(.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector) {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Основные стили для body */
+body {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Стили для контейнеров */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Карточки (для услуг, например) */
+.card {
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px var(--shadow);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+/* Кнопки */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background: #3a80d2;
+}
+
+:root[data-theme='dark'] .button:hover {
+  background: #5aa0ef;
+}
+
+/* Заголовки */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: 0.8rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Кроссбраузерные стили для плавных переходов */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .button,
+  body,
+  .wind-effect {
+    transition: none;
+    animation: none;
+  }
+}

@@ -1,0 +1,115 @@
+/* PoliticsPage.module.css */
+
+/* Основные стили */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.section {
+  margin-bottom: 30px;
+  padding: 25px;
+  background: #f9f9f9;
+  border-left: 4px solid #3498db;
+  border-radius: 5px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.paragraph {
+  margin-bottom: 15px;
+}
+
+.list {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.list li {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+}
+
+/* Большие планшеты и маленькие ноутбуки (1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 30px;
+  }
+}
+
+/* Планшеты (768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 22px;
+  }
+}
+
+/* Большие телефоны (576px) */
+@media (max-width: 576px) {
+  .container {
+    padding: 15px;
+    border-radius: 0;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+  
+  .list li {
+    padding-left: 12px;
+  }
+}
+
+/* Малые телефоны (до 400px) */
+@media (max-width: 400px) {
+  .title {
+    font-size: 20px;
+  }
+  
+  .section {
+    padding: 15px;
+  }
+}

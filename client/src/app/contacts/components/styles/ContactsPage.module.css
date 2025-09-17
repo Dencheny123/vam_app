@@ -1,0 +1,226 @@
+/* Заголовок секции */
+.sectionTitle {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+/* Обертка контента */
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+/* Левая колонка (Контактные данные) */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* Правая колонка (Форма записи) */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: transparent;
+  border-radius: 8px;
+}
+
+.pageContainer {
+  width: 100%;
+  padding: 7rem 1rem;
+}
+
+.contentContainer {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 4.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+@media (max-width: 1199px) {
+  .contentContainer {
+    max-width: 1000px;
+    padding: 0 15px;
+  }
+
+  .pageTitle {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .pageContainer {
+    padding: 7rem 0.75rem;
+  }
+
+  .contentContainer {
+    max-width: 800px;
+  }
+
+  .pageTitle {
+    font-size: clamp(1.6rem, 3.5vw, 2rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .pageContainer {
+    padding: 6rem 0.5rem;
+  }
+
+  .contentContainer {
+    padding: 0 10px;
+  }
+
+  .pageTitle {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+  }
+}
+
+@media (max-width: 575px) {
+  .pageContainer {
+    padding: 6rem 0.5rem;
+  }
+
+  .contentContainer {
+    padding: 0 8px;
+  }
+
+  .pageTitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .pageTitle::after {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 6rem 0.5rem;
+  }
+
+  .contentContainer {
+    padding: 0 5px;
+  }
+
+  .pageTitle {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  .pageTitle::after {
+    width: 50px;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 1199px) {
+  .contentWrapper {
+    max-width: 1000px;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .contentWrapper {
+    max-width: 800px;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .leftCol,
+  .rightCol {
+    padding: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .contentWrapper {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .leftCol,
+  .rightCol {
+    padding: 0.75rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .sectionTitle::after {
+    width: 50px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contentWrapper {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .leftCol,
+  .rightCol {
+    padding: 0.5rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  }
+
+  .sectionTitle::after {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentWrapper {
+    padding: 0.5rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .sectionTitle::after {
+    width: 30px;
+  }
+}

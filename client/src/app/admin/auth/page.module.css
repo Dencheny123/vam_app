@@ -1,0 +1,140 @@
+.formContainer {
+  background: rgba(34, 30, 24, 0.85);
+  border-radius: 36px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  margin: 40vh auto;
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.35), 0 0 0 0 #e3c7a3 inset;
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  color: #ede5dd;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+.formContainer label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #ede5dd;
+  border-radius: 36px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid #929190c4;
+  background: #2b251f;
+  color: #ede5dd;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.checkboxContainer {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #ede5dd;
+}
+
+.link {
+  color: #ffebc2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.errorText {
+  color: #ff8888;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.submitButton {
+  background-color: #ede5dd;
+  color: #2b251f;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submitButton:hover {
+  background: rgba(254, 217, 142, 0.174);
+  color: #ffffff;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.logoutButton {
+  background-color: #ede5dd;
+  color: #2b251f;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logoutButton:hover {
+  background: rgba(254, 217, 142, 0.174);
+  color: #ffffff;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.realCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #2b251f;
+  border: 2px solid #929190c4;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: sub; 
+}
+
+.customCheckbox::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in;
+}
+
+.realCheckbox:checked + .customCheckbox::before {
+  transform: translate(-50%, -50%) scale(1);
+}

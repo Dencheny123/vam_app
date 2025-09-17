@@ -1,0 +1,45 @@
+.sliderContainer {
+  background: var(--bg-primary);
+  padding: 20px 0;
+}
+
+.sliderViewport {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15px 0px;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.3s ease;
+}
+
+.logo {
+  object-fit: contain;
+  transition: width 0.3s ease, height 0.3s ease;
+  margin: 15px;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    height: 45px;
+  }
+
+  .logo {
+    width: 90px;
+    height: 22.5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slide {
+    height: 30px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 15px;
+  }
+}

@@ -1,0 +1,257 @@
+/* Контейнер страницы */
+.container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-primary);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Фоновое изображение */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/background.webp') no-repeat center center;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: 0;
+  animation: windFlow 15s linear infinite;
+}
+
+/* Эффект ветра */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  opacity: 0.3;
+  z-index: 1;
+  animation: windFlow 15s linear infinite;
+}
+
+/* Контейнер контента */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px var(--shadow);
+  max-width: 600px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.content.fadeIn {
+  opacity: 1;
+}
+
+/* Код ошибки */
+.errorCode {
+  font-size: clamp(6rem, 15vw, 10rem);
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+/* Заголовок */
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Сообщение */
+.message {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--accent);
+  max-width: 450px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.ventIcon {
+  width: 80px;
+  height: 80px;
+  background: url('/window.svg') no-repeat center center;
+  background-size: contain;
+  margin: 0 auto 2rem;
+  opacity: 0.8;
+}
+
+/* Кнопка домой */
+.homeButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  color: white;
+  background: var(--accent);
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homeButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+/* Адаптивность */
+@media (max-width: 991px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .content {
+    padding: 2rem;
+    max-width: 500px;
+  }
+
+  .errorCode {
+    font-size: clamp(4rem, 12vw, 8rem);
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .message {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    max-width: 400px;
+  }
+
+  .ventIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .homeButton {
+    padding: 0.8rem 2rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+    max-width: 400px;
+  }
+
+  .errorCode {
+    font-size: clamp(3rem, 10vw, 6rem);
+  }
+
+  .title {
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+  }
+
+  .message {
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    max-width: 300px;
+  }
+
+  .ventIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .homeButton {
+    padding: 0.7rem 1.5rem;
+    font-size: clamp(0.8rem, 1.6vw, 1rem);
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .content {
+    padding: 1rem;
+    max-width: 350px;
+  }
+
+  .errorCode {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+
+  .title {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .message {
+    font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+    max-width: 250px;
+  }
+
+  .ventIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .homeButton {
+    padding: 0.6rem 1.2rem;
+    font-size: clamp(0.7rem, 1.4vw, 0.9rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    max-width: 300px;
+  }
+
+  .errorCode {
+    font-size: clamp(2rem, 7vw, 4rem);
+  }
+
+  .title {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  }
+
+  .message {
+    font-size: clamp(0.6rem, 1.4vw, 0.8rem);
+    max-width: 200px;
+  }
+
+  .ventIcon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .homeButton {
+    padding: 0.5rem 1rem;
+    font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  }
+}

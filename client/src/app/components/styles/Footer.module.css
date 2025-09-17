@@ -1,0 +1,229 @@
+/* Основной футер */
+.footer {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 2rem 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid var(--accent);
+}
+
+/* Контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Обертка контента */
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Блок текста (слева) */
+.textBlock {
+  flex: 1;
+  min-width: 250px;
+}
+
+.navLinks {
+  margin-bottom: 1rem;
+}
+
+.link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-right: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.legal {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.legalText {
+  margin: 0.2rem 0;
+  line-height: 1.4;
+}
+
+/* Логотип (центр) */
+.logoFooter {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: var(--logo-filter);
+}
+
+.logoFooter a {
+  display: inline-block;
+}
+
+/* Блок иконок (справа) */
+.iconsContainer {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.iconsBlock {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.iconLink:hover {
+  transform: scale(1.1);
+  background: var(--text-primary);
+}
+
+.icon {
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.iconLink:hover .icon {
+  fill: var(--accent);
+}
+
+/* Адаптивность */
+@media (max-width: 991px) {
+  .contentWrapper {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .textBlock,
+  .iconsContainer {
+    margin: 1rem 0;
+    justify-content: center;
+  }
+
+  .iconsContainer {
+    margin-right: 0;
+  }
+
+  .logoFooter {
+    margin: 1rem 0;
+  }
+
+  .link {
+    margin: 0 1rem;
+  }
+
+  .iconLink {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    display: grid;
+  }
+
+  .logoFooter {
+    flex: auto;
+    justify-content: center;
+    margin: 0 100px;
+  }
+
+  .textBlock {
+    flex: auto;
+    justify-content: center;
+  }
+
+  .iconsContainer {
+    flex: auto;
+    justify-content: center;
+  }
+  .link {
+    font-size: 0.85rem;
+    margin: 0 0.8rem;
+  }
+
+  .legal {
+    font-size: 0.8rem;
+  }
+
+  .logoFooter img {
+    width: 100px;
+    height: auto;
+  }
+
+  .iconsContainer {
+    margin-right: 50px;
+  }
+
+  .iconLink {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer {
+    display: grid;
+  }
+
+  .logoFooter {
+    flex: auto;
+    justify-content: center;
+    margin: 0 100px;
+  }
+
+  .textBlock {
+    flex: auto;
+    justify-content: center;
+  }
+
+  .iconsContainer {
+    flex: auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    display: grid;
+  }
+
+  .logoFooter {
+    flex: auto;
+    justify-content: center;
+    margin: 0 100px;
+  }
+
+  .textBlock {
+    flex: auto;
+    justify-content: center;
+  }
+
+  .iconsContainer {
+    flex: auto;
+    justify-content: center;
+  }
+}

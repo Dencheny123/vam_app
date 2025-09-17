@@ -1,0 +1,2049 @@
+.container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: transparent;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.header h1 {
+  color: #69b1ff;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  position: relative;
+  min-width: 300px;
+}
+
+.searchInput {
+  padding: 8px 16px;
+  padding-left: 40px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #334155;
+  color: #69b1ff;
+  width: 100%;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #69b1ff;
+}
+
+.filterSelect {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #334155;
+  color: #69b1ff;
+  min-width: 120px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #69b1ff;
+}
+
+.clearButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #334155;
+  color: #69b1ff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clearButton:hover {
+  border-color: #69b1ff;
+}
+
+.createButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #69b1ff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.createButton:hover {
+  background-color: #69b2ff4a;
+  border-color: #69b1ff;
+}
+
+.exportButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #10b981;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.exportButton:hover {
+  background-color: #059669;
+  border-color: #10b981;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.columnSettingsButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #8b5cf6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.columnSettingsButton:hover {
+  background-color: #7c3aed;
+  border-color: #8b5cf6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+}
+
+.viewButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  background-color: #2563eb;
+  border-color: #3b82f6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.activeViewButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #10b981;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.activeViewButton:hover {
+  background-color: #059669;
+  border-color: #10b981;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Стили для модального окна экспорта */
+.exportFields {
+  margin-top: 8px;
+}
+
+.fieldActions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.smallButton {
+  padding: 6px 12px;
+  border: 1px solid #64748b;
+  border-radius: 4px;
+  background-color: #334155;
+  color: #69b1ff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.smallButton:hover {
+  border-color: #69b1ff;
+  background-color: #1e40af;
+  color: white;
+}
+
+.fieldsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 8px;
+  background-color: #2d3748;
+  border-radius: 6px;
+  border: 1px solid #64748b;
+}
+
+.exportCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.exportCheckbox:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.exportCheckbox input[type="checkbox"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #64748b;
+  border-radius: 3px;
+  background: #1f2937;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exportCheckbox input[type="checkbox"]:checked {
+  background: #69b1ff;
+  border-color: #69b1ff;
+}
+
+.exportCheckbox input[type="checkbox"]:checked::after {
+  content: '✓';
+  display: block;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #69b1ff;
+}
+
+.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.orderCard {
+  background: transparent;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #64748b;
+  transition: all 0.3s ease;
+}
+
+.orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-2px);
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.orderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.orderName {
+  color: #69b1ff;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.orderPhone {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.orderEmail {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.socialLink:hover {
+  transform: scale(1.1);
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.orderAddress {
+  margin-top: 8px;
+}
+
+.addressLink {
+  color: #94a3b8;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.addressLink:hover {
+  color: #69b1ff;
+  text-decoration: underline;
+}
+
+.orderStatus {
+  display: flex;
+  align-items: center;
+}
+
+.statusSelect {
+  padding: 6px 12px;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #334155;
+  color: white;
+  cursor: pointer;
+  min-width: 120px;
+  text-align: center;
+}
+
+.statusSelect:focus {
+  outline: none;
+}
+
+.orderMessage {
+  background: #334155;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border-left: 3px solid #69b1ff;
+}
+
+.orderMessage strong {
+  color: #69b1ff;
+}
+
+.orderDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailItem strong {
+  color: #69b1ff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.detailItem span {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.orderActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.editButton,
+.deleteButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editButton {
+  background-color: #334155;
+  color: #69b1ff;
+}
+
+.editButton:hover {
+  border-color: #69b1ff;
+  background-color: #1e40af;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #334155;
+  color: #f87171;
+}
+
+.deleteButton:hover {
+  border-color: #f87171;
+  background-color: #dc2626;
+  color: white;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: #1e293b;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h2 {
+  color: #69b1ff;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #69b1ff;
+  padding-bottom: 8px;
+}
+
+.modalContent {
+  margin-bottom: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  color: #69b1ff;
+  font-weight: 500;
+}
+
+.formInput,
+.formTextarea {
+  padding: 8px 12px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #334155;
+  color: #69b1ff;
+  font-size: 14px;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #69b1ff;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 8px 20px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveButton {
+  background-color: #69b1ff;
+  color: white;
+  border-color: #69b1ff;
+}
+
+.saveButton:hover {
+  background-color: #1890ff;
+}
+
+.cancelButton {
+  background-color: #334155;
+  color: #94a3b8;
+}
+
+.cancelButton:hover {
+  border-color: #94a3b8;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchBox {
+    min-width: auto;
+  }
+
+  .orderHeader {
+    flex-direction: column;
+  }
+
+  .orderDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .orderActions {
+    justify-content: stretch;
+  }
+
+  .editButton,
+  .deleteButton {
+    flex: 1;
+  }
+
+  .modal {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .modal h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .orderCard {
+    padding: 20px;
+  }
+
+  .orderName {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 490px) {
+  .container {
+    padding: 8px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 1.1rem;
+  }
+
+  .orderCard {
+    padding: 16px;
+  }
+
+  .orderName {
+    font-size: 1rem;
+  }
+
+  .modal {
+    padding: 16px;
+  }
+
+  .modal h2 {
+    font-size: 1.1rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header h1 {
+    font-size: 1rem;
+  }
+
+  .orderCard {
+    padding: 12px;
+  }
+
+  .modal {
+    padding: 12px;
+  }
+
+  .modal h2 {
+    font-size: 1rem;
+  }
+}
+
+/* Стили для расширенной фильтрации */
+.filterButton {
+  padding: 10px 20px;
+  border: 2px solid #69b1ff;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #1e40af, #3b82f6);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+.filterButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+  background: linear-gradient(145deg, #3b82f6, #60a5fa);
+}
+
+.advancedFilters {
+  background: linear-gradient(135deg, #1e293b, #2d3748);
+  border: 2px solid #69b1ff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 8px;
+  border: 1px solid #374151;
+  transition: all 0.3s ease;
+}
+
+.filterSection:hover {
+  border-color: #69b1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.filterSection h3 {
+  color: #69b1ff;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #69b1ff;
+  padding-bottom: 8px;
+}
+
+.dateRange,
+.amountRange {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dateInput,
+.amountInput {
+  padding: 10px 14px;
+  border: 2px solid #4b5563;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #1f2937, #374151);
+  color: #69b1ff;
+  font-size: 14px;
+  min-width: 140px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dateInput:focus,
+.amountInput:focus {
+  outline: none;
+  border-color: #69b1ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.dateInput::placeholder,
+.amountInput::placeholder {
+  color: #94a3b8;
+  opacity: 0.7;
+}
+
+.dateSeparator,
+.rangeSeparator {
+  color: #69b1ff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.applyButton {
+  padding: 10px 16px;
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #059669, #10b981);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.applyButton:hover {
+  background: linear-gradient(145deg, #10b981, #34d399);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+}
+
+.clearSmallButton {
+  padding: 10px 12px;
+  border: 2px solid #ef4444;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #dc2626, #ef4444);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 40px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+}
+
+.clearSmallButton:hover {
+  background: linear-gradient(145deg, #ef4444, #f87171);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(239, 68, 68, 0.3);
+}
+
+.statusFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.statusCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 12px;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  transition: all 0.3s ease;
+}
+
+.statusCheckbox:hover {
+  border-color: #69b1ff;
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.statusCheckbox input[type="checkbox"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #64748b;
+  border-radius: 4px;
+  background: #1f2937;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.statusCheckbox input[type="checkbox"]:checked {
+  background: #69b1ff;
+  border-color: #69b1ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.statusCheckbox input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Адаптивные стили для расширенной фильтрации */
+@media (max-width: 767px) {
+  .advancedFilters {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dateRange,
+  .amountRange {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dateInput,
+  .amountInput {
+    min-width: auto;
+  }
+
+  .statusFilters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 490px) {
+  .advancedFilters {
+    padding: 16px;
+  }
+
+  .filterSection h3 {
+    font-size: 13px;
+  }
+
+  .dateInput,
+  .amountInput {
+    font-size: 13px;
+  }
+}
+
+/* Стили для массовых операций */
+.massActionsButton {
+  padding: 8px 16px;
+  border: 2px solid #f59e0b;
+  border-radius: 6px;
+  background: linear-gradient(145deg, #d97706, #f59e0b);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+}
+
+.massActionsButton:hover {
+  background: linear-gradient(145deg, #f59e0b, #fbbf24);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
+}
+
+.massActionsPanel {
+  background: linear-gradient(135deg, #1e293b, #2d3748);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.massActionsInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #64748b;
+}
+
+.massActionsInfo span {
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.selectAllButton {
+  padding: 6px 12px;
+  border: 1px solid #64748b;
+  border-radius: 4px;
+  background-color: #334155;
+  color: #f59e0b;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.selectAllButton:hover {
+  border-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.massActionsButtons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.massStatusSelect {
+  padding: 8px 12px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #334155;
+  color: #f59e0b;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.massStatusSelect:focus {
+  outline: none;
+  border-color: #f59e0b;
+}
+
+.massStatusButton,
+.massDeleteButton,
+.copyContactsButton {
+  padding: 8px 16px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.massStatusButton {
+  background-color: #334155;
+  color: #f59e0b;
+}
+
+.massStatusButton:hover:not(:disabled) {
+  border-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.massDeleteButton {
+  background-color: #334155;
+  color: #f87171;
+}
+
+.massDeleteButton:hover:not(:disabled) {
+  border-color: #f87171;
+  background-color: rgba(248, 113, 113, 0.1);
+}
+
+.copyContactsButton {
+  background-color: #334155;
+  color: #10b981;
+}
+
+.copyContactsButton:hover:not(:disabled) {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.massStatusButton:disabled,
+.massDeleteButton:disabled,
+.copyContactsButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.orderCheckbox {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #64748b;
+  border-radius: 4px;
+  background: #1f2937;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 12px;
+}
+
+.checkboxInput:checked {
+  background: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.checkboxInput:checked::after {
+  content: '✓';
+  display: block;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+}
+
+.checkboxInput:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Адаптивные стили для массовых операций */
+@media (max-width: 767px) {
+  .massActionsPanel {
+    padding: 16px;
+  }
+
+  .massActionsInfo {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .massActionsButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .massStatusSelect {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 490px) {
+  .massActionsPanel {
+    padding: 12px;
+  }
+
+  .massStatusButton,
+  .massDeleteButton,
+  .copyContactsButton {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Стили для модального окна настройки колонок */
+.columnSettingsModal {
+  background: #1e293b;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.columnSettingsModal h2 {
+  color: #8b5cf6;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #8b5cf6;
+  padding-bottom: 8px;
+}
+
+.columnSettingsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 12px;
+  background-color: #2d3748;
+  border-radius: 6px;
+  border: 1px solid #64748b;
+}
+
+.columnSettingItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  transition: all 0.3s ease;
+}
+
+.columnSettingItem:hover {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.columnSettingItem input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #64748b;
+  border-radius: 4px;
+  background: #1f2937;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.columnSettingItem input[type="checkbox"]:checked {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.columnSettingItem input[type="checkbox"]:checked::after {
+  content: '✓';
+  display: block;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+}
+
+.columnSettingLabel {
+  color: #cbd5e1;
+  font-size: 14px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.columnSettingsActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.saveSettingsButton,
+.resetSettingsButton {
+  padding: 8px 20px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.saveSettingsButton {
+  background-color: #8b5cf6;
+  color: white;
+  border-color: #8b5cf6;
+}
+
+.saveSettingsButton:hover {
+  background-color: #7c3aed;
+}
+
+.resetSettingsButton {
+  background-color: #334155;
+  color: #94a3b8;
+}
+
+.resetSettingsButton:hover {
+  border-color: #94a3b8;
+  color: white;
+}
+
+/* Адаптивные стили для модального окна настроек колонок */
+@media (max-width: 767px) {
+  .columnSettingsModal {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .columnSettingsList {
+    grid-template-columns: 1fr;
+  }
+
+  .columnSettingsActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .saveSettingsButton,
+  .resetSettingsButton {
+    flex: 1;
+  }
+}
+
+@media (max-width: 490px) {
+  .columnSettingsModal {
+    padding: 16px;
+  }
+
+  .columnSettingsModal h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Стили для сортировки */
+.currentSortInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(45, 55, 72, 0.8));
+  border: 2px solid #69b1ff;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+.currentSortInfo span {
+  color: #69b1ff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+
+/* Стили для выпадающего списка Select */
+.antSelectDropdown {
+  background: linear-gradient(145deg, #1f2937, #374151) !important;
+  border: 2px solid #64748b !important;
+  border-radius: 8px !important;
+}
+
+.antSelectItem {
+  color: #69b1ff !important;
+  background: transparent !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+.antSelectItem:hover {
+  background: linear-gradient(145deg, #3b82f6, #2563eb) !important;
+  color: white !important;
+}
+
+.antSelectItemOptionSelected {
+  background: linear-gradient(145deg, #3b82f6, #2563eb) !important;
+  color: white !important;
+}
+
+.antSelectItemOptionActive {
+  background: linear-gradient(145deg, #3b82f6, #1d4ed8) !important;
+  color: white !important;
+}
+
+.antSelectOutlined .antSelectSelector {
+  background: transparent !important;
+  border: none !important;
+}
+
+.sortSelect {
+  padding: 10px 16px;
+  border: 2px solid #4b5563;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #1f2937, #374151);
+  color: #69b1ff;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 160px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sortSelect:focus {
+  outline: none;
+  border-color: #69b1ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.sortSelect option {
+  background: #1e293b;
+  color: #69b1ff;
+}
+
+.sortDirectionButton {
+  padding: 10px 16px;
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #059669, #10b981);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+  min-width: 120px;
+}
+
+.sortDirectionButton:hover {
+  background: linear-gradient(145deg, #10b981, #34d399);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+}
+
+.sortDirectionButton.active {
+  background: linear-gradient(145deg, #3b82f6, #60a5fa);
+  border-color: #3b82f6;
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+}
+
+.sortDirectionButton.active:hover {
+  background: linear-gradient(145deg, #60a5fa, #93c5fd);
+}
+
+/* Стили для отображения адреса */
+.addressText {
+  color: #94a3b8;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 4px;
+  border: 1px solid #4b5563;
+}
+
+/* Адаптивные стили для сортировки */
+@media (max-width: 767px) {
+  .currentSortInfo {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .sortSelect {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .sortDirectionButton {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 490px) {
+  .currentSortInfo {
+    padding: 10px;
+  }
+
+  .currentSortInfo span {
+    font-size: 13px;
+  }
+
+  .sortSelect,
+  .sortDirectionButton {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+/* Стили для кнопок переключения режима отображения */
+.viewModeButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.viewModeButtons .viewButton {
+  padding: 8px 12px;
+  border: 2px solid #64748b;
+  border-radius: 6px;
+  background-color: #334155;
+  color: #69b1ff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  min-width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewModeButtons .viewButton:hover {
+  border-color: #69b1ff;
+  background-color: #1e40af;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.viewModeButtons .activeViewButton {
+  background-color: #69b1ff;
+  color: white;
+  border-color: #69b1ff;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.viewModeButtons .activeViewButton:hover {
+  background-color: #1890ff;
+}
+
+/* Стили для списка заказов в разных режимах Windows Explorer */
+.ordersList.listView {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ordersList.largeIconsView {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.ordersList.mediumIconsView {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.ordersList.smallIconsView {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.ordersList.tileView {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.ordersList.contentView {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Стиль Список - все данные */
+.listView .orderCard {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #64748b;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.listView .orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-2px);
+}
+
+/* Стиль Крупные значки - имя, телефон, сообщение, статус, ватсап телеграм, адрес */
+.largeIconsView .orderCard {
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #64748b;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(45, 55, 72, 0.95));
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 280px;
+}
+
+.largeIconsView .orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.largeIconsView .orderHeader {
+  margin-bottom: 12px;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.largeIconsView .orderName {
+  font-size: 1.3rem !important;
+  color: #3b82f6 !important;
+  font-weight: 600;
+  margin: 0;
+}
+
+.largeIconsView .orderPhone {
+  font-size: 16px !important;
+  color: #cbd5e1 !important;
+  font-weight: 500;
+}
+
+.largeIconsView .orderMessage {
+  background: rgba(30, 41, 59, 0.8);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 3px solid #69b1ff;
+  font-size: 14px;
+}
+
+.largeIconsView .orderStatus {
+  align-self: center;
+}
+
+.largeIconsView .statusSelect {
+  min-width: 140px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.largeIconsView .socialLinks {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.largeIconsView .orderAddress {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.largeIconsView .orderDetails {
+  display: none !important;
+}
+
+.largeIconsView .orderActions {
+  gap: 12px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Стиль Обычные значки - имя, телефон, сообщение, статус, ватсап телеграм */
+.mediumIconsView .orderCard {
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #64748b;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(45, 55, 72, 0.9));
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 240px;
+}
+
+.mediumIconsView .orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+}
+
+.mediumIconsView .orderHeader {
+  margin-bottom: 10px;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.mediumIconsView .orderName {
+  font-size: 1.2rem !important;
+  color: #3b82f6 !important;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mediumIconsView .orderPhone {
+  font-size: 14px !important;
+  color: #94a3b8 !important;
+}
+
+.mediumIconsView .orderMessage {
+  background: rgba(30, 41, 59, 0.7);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border-left: 2px solid #69b1ff;
+  font-size: 13px;
+}
+
+.mediumIconsView .orderStatus {
+  align-self: center;
+}
+
+.mediumIconsView .statusSelect {
+  min-width: 120px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.mediumIconsView .socialLinks {
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.mediumIconsView .orderAddress,
+.mediumIconsView .orderDetails {
+  display: none !important;
+}
+
+.mediumIconsView .orderActions {
+  gap: 10px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Стиль Маленькие значки - имя, телефон, статус, ватсап телеграм */
+.smallIconsView .orderCard {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #64748b;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(45, 55, 72, 0.85));
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 200px;
+}
+
+.smallIconsView .orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.15);
+}
+
+.smallIconsView .orderHeader {
+  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.smallIconsView .orderName {
+  font-size: 1.1rem !important;
+  color: #3b82f6 !important;
+  font-weight: 600;
+  margin: 0;
+}
+
+.smallIconsView .orderPhone {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+}
+
+.smallIconsView .orderMessage,
+.smallIconsView .orderAddress,
+.smallIconsView .orderDetails {
+  display: none !important;
+}
+
+.smallIconsView .orderStatus {
+  align-self: center;
+}
+
+.smallIconsView .statusSelect {
+  min-width: 100px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.smallIconsView .socialLinks {
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.smallIconsView .orderActions {
+  gap: 8px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Стиль Плитка - имя, телефон, сообщение, статус */
+.tileView .orderCard {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #64748b;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(45, 55, 72, 0.9));
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 180px;
+  justify-content: space-between;
+}
+
+.tileView .orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+}
+
+.tileView .orderHeader {
+  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.tileView .orderName {
+  font-size: 1.1rem !important;
+  color: #3b82f6 !important;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tileView .orderPhone {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+}
+
+.tileView .orderMessage {
+  background: rgba(30, 41, 59, 0.7);
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border-left: 2px solid #69b1ff;
+  font-size: 12px;
+}
+
+.tileView .orderStatus {
+  align-self: center;
+}
+
+.tileView .statusSelect {
+  min-width: 100px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.tileView .socialLinks,
+.tileView .orderAddress,
+.tileView .orderDetails {
+  display: none !important;
+}
+
+.tileView .orderActions {
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Стиль Содержимое - все данные в табличном варианте */
+.contentView .orderCard {
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid #64748b;
+  background: transparent;
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.contentView .orderCard:hover {
+  border-color: #69b1ff;
+  transform: translateY(-1px);
+}
+
+.contentView .orderHeader {
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.contentView .orderInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.contentView .orderName {
+  font-size: 1.1rem !important;
+  color: #3b82f6 !important;
+  margin: 0;
+  grid-column: 1 / -1;
+}
+
+.contentView .orderPhone,
+.contentView .orderEmail {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+}
+
+.contentView .orderMessage {
+  background: rgba(30, 41, 59, 0.7);
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border-left: 2px solid #69b1ff;
+  font-size: 12px;
+  grid-column: 1 / -1;
+}
+
+.contentView .orderAddress {
+  margin-top: 4px;
+  grid-column: 1 / -1;
+}
+
+.contentView .orderDetails {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+  grid-column: 1 / -1;
+}
+
+.contentView .detailItem {
+  gap: 2px;
+}
+
+.contentView .detailItem strong {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+}
+
+.contentView .detailItem span {
+  font-size: 12px !important;
+}
+
+.contentView .socialLinks {
+  margin-top: 4px;
+  grid-column: 1 / -1;
+}
+
+.contentView .orderStatus {
+  justify-self: end;
+}
+
+.contentView .statusSelect {
+  min-width: 120px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.contentView .orderActions {
+  grid-column: 2;
+  grid-row: 1;
+  gap: 8px;
+  justify-content: end;
+}
+
+/* Адаптивные стили для всех режимов */
+@media (max-width: 767px) {
+  .ordersList.largeIconsView,
+  .ordersList.mediumIconsView,
+  .ordersList.smallIconsView,
+  .ordersList.tileView {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .largeIconsView .orderCard,
+  .mediumIconsView .orderCard,
+  .smallIconsView .orderCard,
+  .tileView .orderCard {
+    min-height: auto;
+  }
+  
+  .contentView .orderCard {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .contentView .orderHeader {
+    grid-template-columns: 1fr;
+  }
+  
+  .contentView .orderStatus {
+    justify-self: start;
+  }
+  
+  .contentView .orderActions {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: center;
+  }
+  
+  .viewModeButtons {
+    gap: 6px;
+  }
+
+  .viewModeButtons .viewButton {
+    padding: 6px 10px;
+    font-size: 14px;
+    min-width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 490px) {
+  .viewModeButtons {
+    gap: 4px;
+  }
+
+  .viewModeButtons .viewButton {
+    padding: 5px 8px;
+    font-size: 12px;
+    min-width: 36px;
+    height: 36px;
+  }
+  
+  .largeIconsView .orderCard,
+  .mediumIconsView .orderCard,
+  .smallIconsView .orderCard,
+  .tileView .orderCard {
+    padding: 12px;
+  }
+  
+  .contentView .orderCard {
+    padding: 12px;
+  }
+  
+  .contentView .orderInfo {
+    grid-template-columns: 1fr;
+  }
+  
+  .contentView .orderDetails {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Адаптивные стили для кнопок действий во всех режимах */
+@media (max-width: 767px) {
+  .largeIconsView .orderActions,
+  .mediumIconsView .orderActions,
+  .smallIconsView .orderActions,
+  .tileView .orderActions,
+  .contentView .orderActions {
+    flex-direction: column;
+  }
+  
+  .largeIconsView .editButton,
+  .largeIconsView .deleteButton,
+  .mediumIconsView .editButton,
+  .mediumIconsView .deleteButton,
+  .smallIconsView .editButton,
+  .smallIconsView .deleteButton,
+  .tileView .editButton,
+  .tileView .deleteButton,
+  .contentView .editButton,
+  .contentView .deleteButton {
+    flex: 1;
+    min-width: auto;
+  }
+}

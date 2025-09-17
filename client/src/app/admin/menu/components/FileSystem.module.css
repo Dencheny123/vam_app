@@ -1,0 +1,107 @@
+.sidebar {
+  left: 0;
+  top: 0;
+  width: 25%;
+  background-color: #1a1a1a;
+  border-right: 1px solid #333;
+  overflow-y: auto;
+  color: #e0e0e0;
+  overflow-y: auto;
+}
+
+.header {
+  padding: 1.75rem 1.25rem;
+  border-bottom: 1px solid #333;
+  height: 75px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #f0f0f0;
+}
+
+.treeContainer {
+  padding: 0.75rem 0;
+}
+
+.nodeContainer {
+  transition: all 0.2s ease;
+}
+
+.nodeItem {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.folder {
+  cursor: pointer;
+}
+
+.folder:hover {
+  background-color: #2a2a2a;
+}
+
+.folderButton {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.fileLink {
+  display: flex;
+  align-items: center;
+  color: #a0a0a0;
+  text-decoration: none;
+  width: 100%;
+}
+
+.fileLink:hover {
+  color: #ffffff;
+}
+
+.nodeName {
+  margin-left: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.childrenContainer {
+  border-left: 1px dashed #444;
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.folderIcon {
+  color: #5d9cec;
+  flex-shrink: 0;
+}
+
+.fileIcon {
+  color: #a0a0a0;
+  flex-shrink: 0;
+}
+
+.folderIcon:hover, .fileIcon:hover {
+  opacity: 0.8;
+}
+
+.menu {
+  display: block;
+  width: 20%;
+}
+
+@media (max-width: 767px) {
+  .menu {
+    display: none;
+  }
+}

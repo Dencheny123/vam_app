@@ -1,0 +1,42 @@
+# robots.txt для сайта https://vsmtech.ru
+
+User-agent: *
+# Запретить сканирование административного интерфейса
+Disallow: /admin
+
+# Запретить сканирование всех API, кроме whitelisted
+Disallow: /api/
+
+# Запретить сканирование файлов в папке загрузок (например, фото, документы)
+Disallow: /uploads/
+
+# Исключить технические и черновые страницы (если есть)
+Disallow: /faq/
+
+# Убрать страницы с параметрами сортировки, фильтрации и сессиями (если применимо)
+Disallow: /*?*
+Disallow: /*&*
+
+# Разрешить доступ ко всем остальным страницам
+Allow: /
+
+# Указать расположение карты сайта (важно для SEO)
+Sitemap: https://vsmtech.ru/sitemap.xml
+
+# Задать интервал между запросами (в секундах)
+Crawl-delay: 5
+
+# Специальные ограничения для некоторых "плохих" или нежелательных ботов
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Примечание: Googlebot и Яндекс уважают Allow/Disallow и Sitemap.

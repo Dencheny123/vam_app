@@ -1,0 +1,275 @@
+/* Контейнер контактов */
+.contactsContainer {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px;
+  font-family: inherit;
+  border: 2px solid var(--accent);
+  border-radius: 15px;
+  height: 100%;
+}
+
+/* Контейнер информации о контактах */
+.contactInfo {
+  margin-bottom: 20px;
+}
+
+/* Элемент контакта */
+.contactItem {
+  margin-bottom: 28px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Стили для телефона */
+.contactItem:nth-child(1) .value {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: inline-block;
+  width: auto;
+}
+
+/* Стили для почты */
+.contactItem:nth-child(2) .value {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+  display: block;
+}
+
+/* Стили для адреса */
+.contactItem:nth-child(3) .value {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1.125rem;
+  display: block;
+  margin-bottom: 28px;
+}
+
+/* Ссылки контактов */
+.value a {
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+.value a:hover {
+  color: var(--accent); /* Используем акцентный цвет вместо фиксированного #2c5282 */
+}
+
+/* Социальные ссылки */
+.socialLinks {
+  display: flex;
+  gap: 25px;
+  margin-top: 16px;
+  justify-content: flex-start;
+}
+
+/* Ссылка на соцсети */
+.socialLink {
+  transition: transform 0.3s;
+}
+
+.socialLink:hover {
+  transform: scale(1.1);
+}
+
+/* Иконка соцсети */
+.socialIcon {
+  filter: grayscale(30%) brightness(0.8) drop-shadow(0 2px 4px var(--shadow));
+  transition: filter 0.3s;
+}
+
+.socialIcon:hover {
+  filter: grayscale(0%) brightness(1) drop-shadow(0 4px 8px var(--shadow));
+}
+
+/* Стили для состояний загрузки, ошибки и пустого состояния */
+.loading,
+.error,
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-primary); /* Заменяем #000000 на глобальный цвет текста */
+  font-size: 1.1rem;
+}
+
+/* Блок юридической информации */
+.textBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Юридическая информация */
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Текст юридической информации */
+.legalText {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary); /* Заменяем #4a5568 на глобальный цвет текста */
+  opacity: 0.85;
+}
+
+.legalText a {
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.legalText a:hover {
+  color: var(--accent); /* Используем акцентный цвет для ховера */
+}
+
+/* Адаптивность */
+@media (max-width: 991px) {
+  .contactsContainer {
+    max-width: 500px;
+    padding: 24px;
+  }
+
+  .contactItem {
+    margin-bottom: 24px;
+  }
+
+  .contactItem:nth-child(1) .value {
+    font-size: 1.125rem;
+  }
+
+  .contactItem:nth-child(2) .value,
+  .contactItem:nth-child(3) .value {
+    font-size: 1rem;
+  }
+
+  .socialLinks {
+    gap: 20px;
+  }
+
+  .socialIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contactsContainer {
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  .contactItem {
+    margin-bottom: 20px;
+  }
+
+  .contactItem:nth-child(1) .value {
+    font-size: 1rem;
+  }
+
+  .contactItem:nth-child(2) .value,
+  .contactItem:nth-child(3) .value {
+    font-size: 0.875rem;
+  }
+
+  .socialLinks {
+    gap: 15px;
+  }
+
+  .socialIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .legalText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contactsContainer {
+    max-width: 100%;
+    padding: 16px;
+    min-height: 400px;
+  }
+
+  .contactItem {
+    margin-bottom: 16px;
+  }
+
+  .contactItem:nth-child(1) .value {
+    font-size: 0.875rem;
+  }
+
+  .contactItem:nth-child(2) .value,
+  .contactItem:nth-child(3) .value {
+    font-size: 0.75rem;
+  }
+
+  .socialLinks {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .socialIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .loading,
+  .error,
+  .empty {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .legalText {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactsContainer {
+    padding: 12px;
+    min-height: 360px;
+  }
+
+  .contactItem {
+    margin-bottom: 12px;
+  }
+
+  .contactItem:nth-child(1) .value {
+    font-size: 0.75rem;
+  }
+
+  .contactItem:nth-child(2) .value,
+  .contactItem:nth-child(3) .value {
+    font-size: 0.675rem;
+  }
+
+  .socialLinks {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .socialIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .loading,
+  .error,
+  .empty {
+    font-size: 0.875rem;
+    padding: 15px;
+  }
+
+  .legalText {
+    font-size: 11px;
+  }
+}
