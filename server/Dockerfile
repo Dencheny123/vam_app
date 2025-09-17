@@ -20,6 +20,9 @@ RUN echo "NODE_ENV=production" > .env.production \
     && echo "SMTP_USER=madewlove@mail.ru" >> .env.production \
     && echo "SMTP_FROM=madewlove@mail.ru" >> .env.production \
     && echo "SMTP_ADMIN=juniorletto03092001@gmail.com" >> .env.production
+# Генерируем Prisma клиент
+RUN npm install -g prisma
+RUN npx prisma generate
 # Убедимся, что TypeScript установлен и скомпилируем
 RUN npm install typescript --no-save && npx tsc
 RUN cp -r src/generated dist/generated
