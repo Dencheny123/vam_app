@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '@/shared/Hooks/useAppSelector';
-import { useAppDispatch } from '@/shared/Hooks/useAppDispatch';
 import { axiosInstance } from '@/shared/lib/axiosInstance';
-import '@/src/app/components/styles/globals.css'
+import '@/app/components/styles/globals.css'
 import {
   LineChart,
   Line,

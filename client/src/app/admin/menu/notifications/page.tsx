@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import '@/src/app/components/styles/globals.css'
+import '@/app/components/styles/globals.css'
 import {
   Card,
   Button,

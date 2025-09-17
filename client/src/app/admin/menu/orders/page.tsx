@@ -20,7 +20,7 @@ import {
   PlusOutlined,
   EnvironmentOutlined,
 } from '@ant-design/icons';
-import '@/src/app/components/styles/globals.css'
+import '@/app/components/styles/globals.css'
 import {
   getOrdersThunk,
   updateOrderThunk,
