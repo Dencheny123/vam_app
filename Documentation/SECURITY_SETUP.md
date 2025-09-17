@@ -7,8 +7,8 @@
 
 ## 🔐 Какие данные нужно защитить:
 
-1. **Docker Hub Token**: `dckr_pat_qLV80-p48gJYwAqhaNzIq-PzlRo`
-2. **Railway Token**: `248501d4-55d8-472f-9ba0-fdf7ea16e310`
+1. **Docker Hub Token**: `dckr_pat_your_actual_token_here`
+2. **Railway Token**: `your_railway_token_here`
 3. **База данных** и другие чувствительные переменные
 
 ## 🚀 Как переместить в GitHub Secrets:
@@ -20,9 +20,9 @@
 3. Добавьте следующие секреты:
 
 ```
-DOCKERHUB_USERNAME: dencheny123
-DOCKERHUB_TOKEN: dckr_pat_qLV80-p48gJYwAqhaNzIq-PzlRo
-RAILWAY_TOKEN: 248501d4-55d8-472f-9ba0-fdf7ea16e310
+DOCKERHUB_USERNAME: your_dockerhub_username
+DOCKERHUB_TOKEN: dckr_pat_your_actual_token_here
+RAILWAY_TOKEN: your_railway_token_here
 ```
 
 ### 2. Обновите workflow файл:
@@ -32,9 +32,9 @@ RAILWAY_TOKEN: 248501d4-55d8-472f-9ba0-fdf7ea16e310
 ```yaml
 # ЗАМЕНИТЕ ЭТО:
 env:
-  DOCKERHUB_USERNAME: dencheny123
-  DOCKERHUB_PASSWORD: dckr_pat_qLV80-p48gJYwAqhaNzIq-PzlRo
-  RAILWAY_TOKEN: 248501d4-55d8-472f-9ba0-fdf7ea16e310
+  DOCKERHUB_USERNAME: your_dockerhub_username
+  DOCKERHUB_PASSWORD: dckr_pat_your_actual_token_here
+  RAILWAY_TOKEN: your_railway_token_here
 
 # НА ЭТО:
 env:
