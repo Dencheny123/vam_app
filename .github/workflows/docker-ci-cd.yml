@@ -84,25 +84,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
+      - name: Setup Railway Deployment
+        uses: railwayapp/action@v1.2.0
+        with:
+          railway_token: ${{ env.RAILWAY_TOKEN }}
+          service: your-service-name # Замените на имя вашего сервиса в Railway
+          environment: production
+          # Дополнительные опции:
+          # healthcheck_path: /health
+          # healthcheck_timeout: 30
+          # dockerfile: ./Dockerfile
+          # context: ./
 
-      - name: Deploy to Railway
-        env:
-          RAILWAY_TOKEN: ${{ env.RAILWAY_TOKEN }}
+      - name: Display deployment info
         run: |
-          echo "🚄 Deploying to Railway..."
-          echo "⚠️  WARNING: Railway deployment requires project setup. Please configure your Railway project first."
-          echo "📋 Railway Token: $RAILWAY_TOKEN"
+          echo "🚄 Railway deployment initiated!"
           echo "🐳 Client Image: ${{ env.CLIENT_IMAGE_NAME }}:latest"
           echo "🐳 Server Image: ${{ env.SERVER_IMAGE_NAME }}:latest"
-
-          # Basic Railway setup (requires manual project configuration)
-          echo "$RAILWAY_TOKEN" | railway login
-          echo "✅ Logged in to Railway"
-          echo "📝 Please run 'railway init' and 'railway link' manually to configure project"
-
-          echo "ℹ️  Railway deployment requires additional setup. See documentation for details."
+          echo "📋 Check deployment status at: https://railway.app/project/your-project-id"
 
   notify:
     needs: [build-and-push, deploy-railway]
