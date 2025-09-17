@@ -13,10 +13,10 @@ COPY . .
 RUN echo "NODE_ENV=production" > .env \
     && echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api" >> .env \
     && echo "NEXT_PUBLIC_UPLOADS_URL=http://localhost:3001/uploads" >> .env \
-    && echo "NEXT_PUBLIC_URL=http://localhost:3001" >> .env.production \
-    && echo "NEXT_PUBLIC_DOCKER_API_URL=http://server:3001/api" >> .env \
-    && echo "NEXT_PUBLIC_DOCKER_UPLOADS_URL=http://server:3001/uploads" >> .env \
-    && echo "NEXT_PUBLIC_DOCKER_URL=http://server:3001" >> .env.production
+    && echo "NEXT_PUBLIC_URL=http://localhost:3001" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_API_URL=http://localhost:3001/api" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_UPLOADS_URL=http://localhost:3001/uploads" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_URL=http://localhost:3001" >> .env
 RUN npm run build
 
 # Финальный этап
@@ -27,6 +27,6 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.env.production ./.env.production
+COPY --from=builder /app/.env ./.env
 EXPOSE 4000
 CMD ["npm", "start", "--", "-p", "4000"]

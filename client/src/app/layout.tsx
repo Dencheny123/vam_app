@@ -2,9 +2,6 @@ export const dynamic = 'force-dynamic';
 import type { Metadata } from 'next';
 import './components/styles/globals.css';
 import { ClientLayoutWrapper } from './components/contexts/LayoutContext/ClientLayoutWrapper';
-import Head from 'next/head';
-import Script from 'next/script';
-import { generateMetadatas } from '@/shared/utils/metadata';
 import AnalyticsMiddleware from './components/AnalyticsMiddleware';
 
 export const viewport = {
@@ -14,8 +11,66 @@ export const viewport = {
   ],
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  return generateMetadatas(1);
+export function generateMetadata(): Metadata {
+  return {
+    title: 'ВентСтройМонтаж | Профессиональный монтаж вентиляции и кондиционеров ',
+    description:
+      'Установка и обслуживание систем вентиляции, кондиционирования и очистки воздуха в Москве и области. Гарантия качества, индивидуальные решения.',
+    icons: {
+      icon: [
+        {
+          url: `${
+            process.env.NEXT_PUBLIC_URL
+              ? process.env.NEXT_PUBLIC_URL
+              : 'http://localhost:3001'
+          }/uploads/icon_oktogon.ico`,
+        },
+        new URL(
+          `${
+            process.env.NEXT_PUBLIC_URL
+              ? process.env.NEXT_PUBLIC_URL
+              : 'http://localhost:3001'
+          }/uploads/icon_oktogon.ico`,
+        ),
+      ],
+      shortcut: [
+        `${
+          process.env.NEXT_PUBLIC_URL
+            ? process.env.NEXT_PUBLIC_URL
+            : 'http://localhost:3001'
+        }/uploads/icon_oktogon.ico`,
+      ],
+      apple: [
+        {
+          url: `${
+            process.env.NEXT_PUBLIC_URL
+              ? process.env.NEXT_PUBLIC_URL
+              : 'http://localhost:3001'
+          }/uploads/icon_oktogon.png`,
+        },
+        {
+          url: `${
+            process.env.NEXT_PUBLIC_URL
+              ? process.env.NEXT_PUBLIC_URL
+              : 'http://localhost:3001'
+          }/uploads/icon_oktogon.png`,
+          sizes: '180x180',
+          type: 'image/png',
+        },
+      ],
+      other: [
+        {
+          rel: 'mask-icon',
+          url: `${
+            process.env.NEXT_PUBLIC_URL
+              ? process.env.NEXT_PUBLIC_URL
+              : 'http://localhost:3001'
+          }/uploads/icon_oktogon.ico`,
+          color: '#000000',
+        },
+      ],
+    },
+  };
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -111,12 +166,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="ru" suppressHydrationWarning>
-      <Head>
-        <Script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
       <body className="wind-effect">
         <AnalyticsMiddleware />
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>

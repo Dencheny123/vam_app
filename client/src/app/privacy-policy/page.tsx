@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { generateMetadatas } from '@/shared/utils/metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return generateMetadatas(1);
+  return generateMetadatas(1) as Metadata;
 }
 
 

@@ -42,25 +42,25 @@
 }
 
 /* Стили для выпадающего списка Select */
-:global(.ant-select-dropdown) {
+.ant-select-dropdown {
   background: linear-gradient(145deg, #1f2937, #374151) !important;
   border: 2px solid #64748b !important;
 }
 
-:global(.ant-select-item) {
+.ant-select-item {
   color: #69b1ff !important;
   background: transparent !important;
 }
 
-:global(.ant-select-item:hover) {
+.ant-select-item:hover {
   background: rgba(59, 130, 246, 0.1) !important;
 }
 
-:global(.ant-select-item-option-selected) {
+.ant-select-item-option-selected {
   background: rgba(59, 130, 246, 0.2) !important;
 }
 
-:global(.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector) {
+.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
   background: transparent !important;
   border: none !important;
 }

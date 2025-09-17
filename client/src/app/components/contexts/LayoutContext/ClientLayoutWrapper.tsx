@@ -9,8 +9,6 @@ const Feedback = dynamic(
     ),
   { ssr: false },
 );
-import GoodAppWidget from '@/app/components/contexts/LayoutContext/providers/WhatsappButton';
-import YandexMetrika from '@/app/components/contexts/LayoutContext/providers/YandexMetrika';
 import { Providers } from './store/Providers';
 import { ThemeProvider } from './theme/ThemeContext';
 import Header from '../Header/Header';
@@ -34,7 +32,6 @@ export function ClientLayoutWrapper({ children }: { children: React.ReactNode })
             <main>
               {children}
               {!isAdminPath && <Feedback />}
-              <YandexMetrika />
             </main>
             {!isAdminPath && <Footer />}
           </ThemeProvider>

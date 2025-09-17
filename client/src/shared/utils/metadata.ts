@@ -215,31 +215,31 @@ export async function generateMetadatas(
         apple: [
           // Основная иконка для Apple devices
           {
-            url: `${
-              process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'
-            }${meta?.icons_apple[0]}`,
+            url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'}${
+              meta?.icons_apple[0]
+            }`,
             sizes: '180x180',
             type: 'image/png',
           },
           // Дополнительные размеры для разных устройств Apple
           {
-            url: `${
-              process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'
-            }${meta?.icons_apple[1]}`,
+            url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'}${
+              meta?.icons_apple[1]
+            }`,
             sizes: '152x152',
             type: 'image/png',
           },
           {
-            url: `${
-              process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'
-            }${meta?.icons_apple[2]}`,
+            url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'}${
+              meta?.icons_apple[2]
+            }`,
             sizes: '167x167',
             type: 'image/png',
           },
           {
-            url: `${
-              process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'
-            }${meta?.icons_apple[3]}`,
+            url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3001'}${
+              meta?.icons_apple[3]
+            }`,
             sizes: '120x120',
             type: 'image/png',
           },
@@ -285,14 +285,14 @@ export async function generateMetadatas(
               process.env.NEXT_PUBLIC_URL
                 ? process.env.NEXT_PUBLIC_URL
                 : 'http://localhost:3001'
-            }/uploads/icons_icon.ico`,
+            }/uploads/icon_oktogon.ico`,
           },
           new URL(
             `${
               process.env.NEXT_PUBLIC_URL
                 ? process.env.NEXT_PUBLIC_URL
                 : 'http://localhost:3001'
-            }/uploads/icons_icon.ico`,
+            }/uploads/icon_oktogon.ico`,
           ),
         ],
         shortcut: [
@@ -300,7 +300,7 @@ export async function generateMetadatas(
             process.env.NEXT_PUBLIC_URL
               ? process.env.NEXT_PUBLIC_URL
               : 'http://localhost:3001'
-          }/uploads/icons_icon.ico`,
+          }/uploads/icon_oktogon.ico`,
         ],
         apple: [
           {
@@ -308,14 +308,14 @@ export async function generateMetadatas(
               process.env.NEXT_PUBLIC_URL
                 ? process.env.NEXT_PUBLIC_URL
                 : 'http://localhost:3001'
-            }/uploads/icons_icon.png`,
+            }/uploads/icon_oktogon.png`,
           },
           {
             url: `${
               process.env.NEXT_PUBLIC_URL
                 ? process.env.NEXT_PUBLIC_URL
                 : 'http://localhost:3001'
-            }/uploads/icons_icon.png`,
+            }/uploads/icon_oktogon.png`,
             sizes: '180x180',
             type: 'image/png',
           },
@@ -327,7 +327,7 @@ export async function generateMetadatas(
               process.env.NEXT_PUBLIC_URL
                 ? process.env.NEXT_PUBLIC_URL
                 : 'http://localhost:3001'
-            }/uploads/icons_icon.ico`,
+            }/uploads/icon_oktogon.ico`,
             color: '#000000',
           },
         ],
