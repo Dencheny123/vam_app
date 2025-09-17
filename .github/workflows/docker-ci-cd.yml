@@ -98,7 +98,7 @@ jobs:
           echo "🐳 Server Image: ${{ env.SERVER_IMAGE_NAME }}:latest"
 
           # Basic Railway setup (requires manual project configuration)
-          railway login --token $RAILWAY_TOKEN
+          echo "$RAILWAY_TOKEN" | railway login
           echo "✅ Logged in to Railway"
           echo "📝 Please run 'railway init' and 'railway link' manually to configure project"
 
