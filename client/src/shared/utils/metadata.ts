@@ -7,7 +7,7 @@ export async function generateMetadatas(
 ): Promise<Metadata> {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_DOCKER_API_URL}/metadata/${index}`,
+      `${process.env.NEXT_PUBLIC_METADATA_URL}/api/metadata/${index}`,
       {
         next: { revalidate: 3600 * 3 },
       },

@@ -1,4 +1,4 @@
-name: STROYKA Docker CI/CD Pipeline
+name: STROYKA Monolithic Docker CI/CD Pipeline
 
 on:
   push:
@@ -11,8 +11,7 @@ env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
   DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
   RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-  CLIENT_IMAGE_NAME: dencheny123/stroyka-client
-  SERVER_IMAGE_NAME: dencheny123/stroyka-server
+  MONOLITH_IMAGE_NAME: dencheny123/stroyka-monolith
 
 jobs:
   build-and-push:
@@ -40,9 +39,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: |
-            ${{ env.CLIENT_IMAGE_NAME }}
-            ${{ env.SERVER_IMAGE_NAME }}
+          images: ${{ env.MONOLITH_IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -52,27 +49,27 @@ jobs:
             type=sha
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
 
-      - name: Build and push Client Docker image
+      - name: Build and push Monolithic Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./client
-          file: ./client/Dockerfile
+          context: .
+          file: ./Dockerfile.monolith
           push: true
-          tags: ${{ env.CLIENT_IMAGE_NAME }}:${{ steps.meta.outputs.version }},${{ env.CLIENT_IMAGE_NAME }}:latest
+          tags: ${{ env.MONOLITH_IMAGE_NAME }}:${{ steps.meta.outputs.version }},${{ env.MONOLITH_IMAGE_NAME }}:latest
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      - name: Build and push Server Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: ./server
-          file: ./server/Dockerfile
-          push: true
-          tags: ${{ env.SERVER_IMAGE_NAME }}:${{ steps.meta.outputs.version }},${{ env.SERVER_IMAGE_NAME }}:latest
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          build-args: |
+            NEXT_PUBLIC_API_URL=/api
+            NEXT_PUBLIC_UPLOADS_URL=/uploads
+            NEXT_PUBLIC_URL=/
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
+            ACCESS_TOKEN_SECRET=${{ secrets.ACCESS_TOKEN_SECRET }}
+            REFRESH_TOKEN_SECRET=${{ secrets.REFRESH_TOKEN_SECRET }}
+            SMTP_PASS=${{ secrets.SMTP_PASS }}
+            SMTP_USER=${{ secrets.SMTP_USER }}
+            SMTP_FROM=${{ secrets.SMTP_FROM }}
+            SMTP_ADMIN=${{ secrets.SMTP_ADMIN }}
 
   deploy-railway:
     needs: build-and-push
@@ -88,19 +85,15 @@ jobs:
         uses: railwayapp/action@v1.2.0
         with:
           railway_token: ${{ env.RAILWAY_TOKEN }}
-          service: your-service-name # Замените на имя вашего сервиса в Railway
+          service: monolith
           environment: production
-          # Дополнительные опции:
-          # healthcheck_path: /health
-          # healthcheck_timeout: 30
-          # dockerfile: ./Dockerfile
-          # context: ./
+          healthcheck_path: /api/health
+          healthcheck_timeout: 300
 
       - name: Display deployment info
         run: |
-          echo "🚄 Railway deployment initiated!"
-          echo "🐳 Client Image: ${{ env.CLIENT_IMAGE_NAME }}:latest"
-          echo "🐳 Server Image: ${{ env.SERVER_IMAGE_NAME }}:latest"
+          echo "🚄 Railway monolithic deployment initiated!"
+          echo "🐳 Monolith Image: ${{ env.MONOLITH_IMAGE_NAME }}:latest"
           echo "📋 Check deployment status at: https://railway.app/project/your-project-id"
 
   notify:
@@ -113,9 +106,7 @@ jobs:
         run: |
           echo "📊 Pipeline status: ${{ job.status }}"
           echo "🔗 View deployment: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          echo "🐳 Docker Hub images:"
-          echo "   - Client: https://hub.docker.com/r/dencheny123/stroyka-client"
-          echo "   - Server: https://hub.docker.com/r/dencheny123/stroyka-server"
+          echo "🐳 Docker Hub image: https://hub.docker.com/r/dencheny123/stroyka-monolith"
           echo "🔐 SECURITY WARNING: Credentials are exposed in workflow. Move to GitHub Secrets when possible."
           echo "📋 Next steps:"
           echo "   1. Configure Railway project: railway init && railway link"
