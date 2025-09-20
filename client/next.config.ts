@@ -5,6 +5,11 @@ const nextConfig = {
     },
   },
   async rewrites() {
+    // В продакшене (Railway) реврайты не нужны - Nginx проксирует запросы
+    if (process.env.NODE_ENV === 'production') {
+      return [];
+    }
+
     const apiUrl = 'http://localhost:3001/api';
     const uploadsUrl = 'http://localhost:3001/uploads';
     const apiDocker = 'http://server:3001/api';
@@ -30,7 +35,17 @@ const nextConfig = {
     ];
   },
   images: {
-    remotePatterns: [
+    // В продакшене разрешаем все домены для изображений (Railway использует динамические домены)
+    remotePatterns: process.env.NODE_ENV === 'production' ? [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ] : [
       {
         protocol: 'http',
         hostname: 'server',

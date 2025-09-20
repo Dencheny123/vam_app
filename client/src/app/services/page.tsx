@@ -4,7 +4,7 @@ import ServicesPage from './ServicesPage';
 import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return generateMetadatas(2);
+  return generateMetadatas(3);
 }
 
 export default function ServicesPages() {

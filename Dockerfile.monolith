@@ -8,12 +8,12 @@ ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_UPLOADS_URL
 ARG NEXT_PUBLIC_URL
 RUN echo "NODE_ENV=production" > .env \
-    && echo "NEXT_PUBLIC_API_URL=http://localhost:8080/api" >> .env \
-    && echo "NEXT_PUBLIC_UPLOADS_URL=http://localhost:8080/uploads" >> .env \
-    && echo "NEXT_PUBLIC_URL=http://localhost:8080" >> .env \
-    && echo "NEXT_PUBLIC_DOCKER_API_URL=http://localhost:8080/api" >> .env \
-    && echo "NEXT_PUBLIC_DOCKER_UPLOADS_URL=http://localhost:8080/uploads" >> .env \
-    && echo "NEXT_PUBLIC_DOCKER_URL=http://localhost:8080" >> .env \
+    && echo "NEXT_PUBLIC_API_URL=https://stroyka-client-production.up.railway.app/api" >> .env \
+    && echo "NEXT_PUBLIC_UPLOADS_URL=https://stroyka-client-production.up.railway.app/uploads" >> .env \
+    && echo "NEXT_PUBLIC_URL=https://stroyka-client-production.up.railway.app" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_API_URL=https://stroyka-client-production.up.railway.app/api" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_UPLOADS_URL=https://stroyka-client-production.up.railway.app/uploads" >> .env \
+    && echo "NEXT_PUBLIC_DOCKER_URL=https://stroyka-client-production.up.railway.app" >> .env \
     && echo "NEXT_PUBLIC_METADATA_URL=http://localhost:3001" >> .env
 RUN npm run build
 
@@ -39,7 +39,10 @@ RUN echo "NODE_ENV=production" > .env \
     && echo "SMTP_ADMIN=juniorletto03092001@gmail.com" >> .env
 RUN npm install -g prisma
 RUN npx prisma generate
+# Убедимся что Prisma клиент доступен в node_modules
+RUN npm install @prisma/client
 RUN npm install typescript --no-save && npx tsc
+
 
 FROM node:24-alpine
 WORKDIR /app
@@ -60,6 +63,8 @@ COPY --from=server-builder /app/server/node_modules ./server/node_modules
 COPY --from=server-builder /app/server/package.json ./server/package.json
 COPY --from=server-builder /app/server/public ./server/public
 COPY --from=server-builder /app/server/.env ./server/.env
+# Копируем сгенерированные Prisma файлы
+COPY --from=server-builder /app/server/node_modules/.prisma ./server/node_modules/.prisma
 
 # Копируем конфигурацию Nginx
 COPY nginx.monolith.conf /etc/nginx/nginx.conf
